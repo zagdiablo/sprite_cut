@@ -16,7 +16,7 @@ print(f"""
 """)
 parser = argparse.ArgumentParser(
     description="Cut a sheet of sprite into multiple images by width and height.",
-    epilog='Usage (python):\npython sprite_cut.py --file home/img/player.png --out home/result/ -W 77 -H 69\n\nUsage (exe):\n./sprite_cut --file home/img/player.png --out home/result/ -W 77 -H 69\n\nWill cut the image 77px by 69px evenly into separate images and save the files in home/result/ directory.\n ',
+    epilog='Usage (python):\npython sprite_cut.py -f <path to file> -o <output directory> --width 77 --height 69\n\nUsage (exe):\n./sprite_cut -f <path to file> -o <output directory> --width 77 --height 69\n\nWill cut the image 77px by 69px evenly into separate images and save the files in home/result/ directory.\n ',
     formatter_class=argparse.RawDescriptionHelpFormatter
 )
 
@@ -66,8 +66,6 @@ def cut_auto(sheet, args):
                 result.save(f'{args.out}/{args.outname}_{cut_hor}_{cut_vert}.png')
             else:
                 result.save(f'{args.out}/cut_{cut_hor}_{cut_vert}.png')
-    
-
 
 
 def main():
